@@ -1,0 +1,16 @@
+<ion-content class="modal-bg">
+  <div class="cover-center refund-center">
+    <h2>退款原因</h2>
+    <ion-list radio-group [(ngModel)]="remark">
+      <ion-item *ngFor="let item of items">
+        <ion-label>{{item.remark}}</ion-label>
+        <ion-radio item-left  value="{{item.remark}}"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <button ion-button class="" (click)="sure()">确定</button>
+      <button ion-button class="cancel" (click)="cancel()">取消</button>
+    </ion-list>
+  </div>
+</ion-content>

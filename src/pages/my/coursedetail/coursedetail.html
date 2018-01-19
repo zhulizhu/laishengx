@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>减压瑜伽</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/jianzhi.png">
+      </ion-thumbnail>
+      <h2>{{itemOrderGoods.toolname}}</h2>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/kejia.png">
+      </ion-thumbnail>
+      <h2>合计费用：￥{{itemOrder.price}} </h2>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/keshi.png">
+      </ion-thumbnail>
+      <h2>
+        {{itemOrderGoods.course_endtime*1000|date:'yyyy-MM-dd'}}
+        <span>(星期{{week}})</span>
+        <span>
+          {{itemOrderGoods.course_starttime*1000|date:'HH:mm'}}-
+          {{itemOrderGoods.course_endtime*1000|date:'HH:mm'}}
+        </span>
+      </h2>
+    </ion-item>
+    <ion-item *ngIf="itemOrderGoods.course_type=='1'">
+      <ion-thumbnail item-start>
+        <img src="assets/img/num.png">
+      </ion-thumbnail>
+      <h2>人数方式：
+        <span *ngIf="itemOrderGoods.total==2">1&nbsp;V&nbsp;2</span>
+        <span *ngIf="itemOrderGoods.total==1">1&nbsp;V&nbsp;1</span>
+      </h2>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/dizhi.png">
+      </ion-thumbnail>
+      <h2>{{itemOrderGoods.storeaddress}}</h2>
+    </ion-item>
+  </ion-list>
+
+  <ion-list no-lines class="number">
+    <ion-item>
+      <h2>场地费:</h2>
+      <p item-end>￥00:00</p>
+    </ion-item>
+    <ion-item>
+      <h2>已优惠:</h2>
+      <p item-end>￥{{itemOrder.couponprice}}</p>
+    </ion-item>
+    <ion-item *ngIf="type==1">
+      <h2>支付方式:</h2>
+      <p item-end>课时抵用</p>
+    </ion-item>
+    <ion-item class="real">
+      <h2>实付款:</h2>
+      <p item-end>￥{{itemOrder.price}}</p>
+    </ion-item>
+    <ion-item *ngIf="itemOrder.status==1&&itemOrder.paytype!=13&&refundstate==0&&chanYes==1" (click)="cancelOrder(itemOrder.id,1,itemOrder.price)">
+      <button ion-button outline item-end>退款</button>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="(itemOrder.status==1||itemOrder.status==2)&&refundstate==0">
+    <div class="gap"></div>
+    <h3>开门方式:</h3>
+    <div>
+        <button class="btn {{btnYes}}" (click)="openDoor(itemOrder.id,1,itemOrderGoods.course_starttime,itemOrderGoods.course_endtime)">生成二维码</button>
+        <button class="btn {{btnNo}}" (click)="openDoor(itemOrder.id,0,itemOrderGoods.course_starttime,itemOrderGoods.course_endtime)">遥控开门</button>
+    </div>
+    <div *ngIf="openType==1">
+      <div class="gap"></div>
+      <h3>门禁二维码:</h3>
+      <div class="door-qr">
+        <img src="{{openUrl}}" alt="">
+      </div>
+    </div>
+    <ion-list no-lines class="number order">
+      <ion-item>
+        <h2>订&nbsp;&nbsp;单&nbsp;&nbsp;号：{{itemOrder.ordersn}}</h2>
+      </ion-item>
+      <!--<ion-item>-->
+      <!--<h2>订单时间：2017-08-20&nbsp;&nbsp;&nbsp;&nbsp;11:45:36</h2>-->
+      <!--</ion-item>-->
+      <ion-item>
+        <h2>付款时间：{{itemOrder.paytime*1000|date:'yyyy-MM-dd HH:mm:ss'}}</h2>
+      </ion-item>
+      <ion-item>
+        <h2>到期时间：{{itemOrderGoods.course_endtime*1000|date:'yyyy-MM-dd HH:mm:ss'}}</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <!--item.id,item.course_starttime,item.course_endtime,item.course_type-->
+  <button ion-button full large *ngIf="itemOrder.status==0" class="agree"
+          (click)="payOrder(itemOrder.id,itemOrderGoods)">去付款
+  </button>
+  <button ion-button full large *ngIf="itemOrder.status==1&&refundstate==0&&chanYes==1" class="agree"
+          (click)="start(itemOrder.id,itemOrderGoods.course_starttime,itemOrderGoods.course_endtime)">{{startName}}</button>
+  <button ion-button full large *ngIf="itemOrder.status==1&&refundstate==1&&chanYes==1" class="agree">退款中</button>
+  <button ion-button full large *ngIf="(itemOrder.status==1)&&chanYes==0" class="agree">结束课程</button>
+  <button ion-button full large  *ngIf="itemOrder.status==2" class="agree">{{chanYes==1?doing:'结束课程'}}</button>
+  <button ion-button full large *ngIf="itemOrder.status==3" class="agree" (click)="comment(itemOrder.id,itemOrderGoods.id)">评价</button>
+  <button ion-button full large *ngIf="itemOrder.status==6" class="agree">已退款</button>
+</ion-footer>

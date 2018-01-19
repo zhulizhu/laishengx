@@ -1,0 +1,50 @@
+<ion-content class="modal-bg">
+  <div class="cover-center way-center contract-center">
+    <div class="close" (click)="cancel()">
+      <ion-icon name="ios-close-circle-outline"  name="ios-close-circle-outline"></ion-icon>
+    </div>
+    <ion-list no-lines class="contract-top">
+      <ion-item style="margin-top: -30px;background: rgba(0,0,0,0);">
+        <div item-left>
+          合约套餐
+        </div>
+        <h3>{{contractType}}(任务{{contractData.num}}次)</h3>
+        <span>￥500.00</span>
+        <p>{{contractData.timeSlice}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list radio-group [(ngModel)]="contractTime" (ionChange)="time()">
+      <ion-list-header>
+        合约方式
+      </ion-list-header>
+      <ion-item>
+        <ion-label>周合约</ion-label>
+        <ion-radio  value="1"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>月合约</ion-label>
+        <ion-radio value="0"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>季合约</ion-label>
+        <ion-radio value="2"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>年合约</ion-label>
+        <ion-radio value="11"></ion-radio>
+      </ion-item>
+    </ion-list>
+    <ion-list radio-group>
+      <ion-list-header>
+        任务次数
+      </ion-list-header>
+      <ion-item>
+        <ion-label>{{contractData.num}}次/{{contractUnit}}</ion-label>
+        <ion-radio checked="true" value="0"></ion-radio>
+      </ion-item>
+    </ion-list>
+      <button  ion-button full (click)="sure()">立即购买</button>
+  </div>
+</ion-content>

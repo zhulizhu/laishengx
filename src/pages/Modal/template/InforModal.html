@@ -1,0 +1,99 @@
+<ion-content class="modal-bg">
+  <div class="cover-center refund-center infor">
+    <h2>基本资料</h2>
+    <!--<form>-->
+    <ion-list inset *ngIf="type==1">
+      <ion-item>
+        <ion-label>性别:</ion-label>
+      </ion-item>
+      <ion-list class="sex-select" radio-group [(ngModel)]="basicInfor.sex">
+        <ion-item>
+          <ion-label>男</ion-label>
+          <ion-radio item-left value="0"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>女</ion-label>
+          <ion-radio item-left value="1"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <ion-item>
+        <ion-label>年龄:</ion-label>
+        <ion-input type="number" name="year" [(ngModel)]="basicInfor.year" placeholder="请输入真实年龄"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>身高:</ion-label>
+        <ion-input type="number" name="height" [(ngModel)]="basicInfor.height" placeholder="请输入真实身高"></ion-input>
+        <ion-label class="right">cm</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>体重:</ion-label>
+        <ion-input type="number" name="weight" [(ngModel)]="basicInfor.weight" placeholder="请输入真实体重"></ion-input>
+        <ion-label class="right">kg</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list inset *ngIf="type==2">
+      <ion-item>
+        <ion-label>骨骼肌:</ion-label>
+        <ion-input type="number" name="skeletal_muscle" [(ngModel)]="basicInfor.skeletal_muscle" placeholder="请输入骨骼肌"></ion-input>
+        <ion-label class="right">kg</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>体脂肪:</ion-label>
+        <ion-input type="number" name="fat" [(ngModel)]="basicInfor.fat" placeholder="请输入体脂肪"></ion-input>
+        <ion-label class="right">kg</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>水分含量:</ion-label>
+        <ion-input type="number" name="water" [(ngModel)]="basicInfor.water" placeholder="请输入水分含量"></ion-input>
+        <ion-label class="right">kg</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>去脂体重:</ion-label>
+        <ion-input type="number" name="leanWeight" [(ngModel)]="basicInfor.leanWeight" placeholder="请输入去脂体重"></ion-input>
+        <ion-label class="right">kg</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list inset *ngIf="type==3">
+      <ion-item>
+        <ion-label>质量指数:</ion-label>
+        <ion-input type="number" name="massIndex" [(ngModel)]="basicInfor.massIndex" placeholder="请输入质量指数"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>体脂百分比:</ion-label>
+        <ion-input type="number" name="weightPercent" [(ngModel)]="basicInfor.weightPercent" placeholder="请输入体脂百分比"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>腰臀比:</ion-label>
+        <ion-input type="number" name="waist" [(ngModel)]="basicInfor.waist" placeholder="请输入腰臀比"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>基础代谢:</ion-label>
+        <ion-input type="number" name="basic" [(ngModel)]="basicInfor.basic" placeholder="请输入基础代谢"></ion-input>
+        <ion-label class="right">kcal</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list inset  *ngIf="type==4">
+      <ion-item>
+        <ion-label>肌肉控制:</ion-label>
+        <ion-input type="number" name="muscle" [(ngModel)]="basicInfor.muscle" placeholder="请输入肌肉控制"></ion-input>
+        <ion-label class="right">kg</ion-label>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label>脂肪控制:</ion-label>
+        <ion-input type="number" name="fatControl" [(ngModel)]="basicInfor.fatControl" placeholder="请输入脂肪控制"></ion-input>
+        <ion-label class="right">kg</ion-label>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-list>
+      <button ion-button (click)="cancel()">取消</button>
+      <button ion-button class="cancel" (click)="sure()">确定</button>
+    </ion-list>
+    <!--</form>-->
+  </div>
+</ion-content>

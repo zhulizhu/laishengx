@@ -1,0 +1,20 @@
+<ion-content class="modal-bg">
+  <div class="cover-center cover-end">
+    <div class="success end">
+      <img src="assets/img/icon-end.png" alt="">
+    </div>
+    <h2>莱盛健身</h2>
+    <p>亲爱的莱盛健身学员，你的课程结束啦， 快去给你的教练评个分吧！</p>
+    <ion-list>
+      <ion-item (click)="comment()">
+        给教练点个赞
+      </ion-item>
+      <ion-item (click)="comment()">
+        给教练一些建议
+      </ion-item>
+      <ion-item (click)="cancel()">
+        残忍拒绝
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

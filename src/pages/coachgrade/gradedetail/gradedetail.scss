@@ -1,0 +1,37 @@
+page-gradedetail{
+  .all-content {
+    background-color: #1b2838!important;
+  }
+  .item-ios ion-avatar[item-start],
+  .item-md ion-avatar[item-start]{
+    margin: -28px 16px 8px 0;
+  }
+  ion-label{
+    white-space: inherit;
+  }
+  .item-ios,.item-md{
+    background-color: #1a2635;
+   h2,h3,p{
+     color: #eaebeb;
+   }
+    h2{
+      font-size: 14px;
+    }
+
+    h3{
+      font-size: 12px;
+    }
+  }
+  .list-ios .item-block .item-inner,
+  .list-md .item-block .item-inner{
+    border-bottom: 1px solid #25364b;
+  }
+  .list-ios > .item-block:last-child,
+  .list-md > .item-block:last-child{
+    border-bottom: none;
+  }
+  .list-ios > .item-block:last-child .item-inner,
+  .list-md > .item-block:last-child .item-inner{
+    border-bottom: 1px solid #25364b;
+  }
+}

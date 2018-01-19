@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>预约团课</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ul class="list-group">
+    <li class="list-group-item">
+        <div class="item-right" >
+          <p>健身项目</p>
+          <span>{{item.subtitle?item.goods.subtitle:'团课'}}</span>
+       </div>
+    </li>
+    <li class="list-group-item">
+      <div class="item-right" >
+        <p>时间</p>
+        <span >{{timeYd*1000|date:'MM月dd日'}} <span class="text-color">{{startTime|date:'HH:mm'}}—{{Endtime*1000|date:'HH:mm'}}</span></span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>地点</p>
+        <span>{{storeaddress?storeaddress:'无'}}</span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>人数</p>
+        <span>{{item.total}}人</span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>价格</p>
+        <span>￥{{item.marketprice}}</span>
+      </div>
+    </li>
+  </ul>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="item-right" >
+        <p>会员卡优惠折扣</p>
+        <!--<span class="text-color">还未开通</span>-->
+        <!--<span><ion-icon name="arrow-forward"></ion-icon></span>-->
+
+        <span class="text-color">{{discountprice==0?'还未开通':discountprice+'元'}}</span>
+        <span ><ion-icon name="arrow-forward"></ion-icon></span>
+      </div>
+    </li>
+    <!--<li class="list-group-item" (click)="buyCoupons()">-->
+    <li class="list-group-item">
+      <div class="item-right" >
+        <p>抵用券</p>
+        <span *ngIf="couponNum==0">暂无</span>
+        <span *ngIf="couponNum>0" (click)="buyCoupons(couponsList,realprice)">{{couponNum}}张可用<ion-icon name="arrow-forward"></ion-icon></span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>费用合计</p>
+        <span class="text-color">￥{{price}}</span>
+      </div>
+    </li>
+  </ul>
+  <ion-list radio-group class="lis-pay">
+    <ion-item>
+      <ion-label><img class="img1" src="assets/img/weixin.png"></ion-label>
+      <ion-label>微信支付</ion-label>
+      <ion-label><span>推荐</span></ion-label>
+      <ion-radio checked="true" value="go"></ion-radio>
+    </ion-item>
+
+
+  </ion-list>
+  <div class="notice">
+    <p>{{reminder?reminder:'温馨提示：开课前6小时取消预约，支持全额退款；开始时间6小时候取消预约'}}</p>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full (click)="pay(coupons.id,price)">立即支付</button>
+  </ion-toolbar>
+</ion-footer>
+
+

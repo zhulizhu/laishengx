@@ -1,0 +1,94 @@
+coupons {
+  .list-md > .item-block:first-child,
+  .list-ios > .item-block:first-child {
+    border-top: none;
+    margin-top: 10px;
+  }
+  .list-md > .item-block:last-child,
+  .list-md > .item-wrapper:last-child .item-block,
+  .list-ios > .item-block:last-child,
+  .list-ios > .item-wrapper:last-child .item-block {
+    border-bottom: none;
+  }
+  .list-md .item-block,
+  .list-ios .item-block {
+    max-width: 700px;
+    margin: 0 auto 10px;
+    min-height: 90px;
+  }
+  .list-md .item-block .item-inner,
+  .list-ios .item-block .item-inner {
+    border-bottom: none;
+  }
+
+  .coupon-yes {
+    background-color: inherit;
+    background: url("../assets/img/coupon-yes.jpg");
+    background-size: 100% 100%;
+    h1 {
+      color: #1285e9;
+      font-size: 3rem;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .button-inner {
+      flex-direction: column;
+    }
+  }
+  .coupon-no {
+    background-color: inherit;
+    background: url("../assets/img/coupon-no.jpg");
+    background-size: 100% 100%;
+    h1 {
+      color: #a3a3a4;
+      font-size: 3rem;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .button-inner {
+      flex-direction: column;
+    }
+
+  }
+  .button-clear-md,
+  .button-clear-ios {
+    color: white;
+  }
+  .item-md .item-button,
+  .item-ios .item-button {
+    font-size: 2.5rem;
+    height: auto;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    width: 20%;
+  }
+
+  h1 > span {
+    font-size: 1.6rem;
+    padding-left: 0.5rem;
+    letter-spacing: 0.5px;
+    font-weight: normal;
+  }
+  .label-md, .label-ios {
+    margin: 1.5rem 10px 1rem 15%;
+  }
+  .item-md p, .item-ios p {
+    color: #a3a3a4;
+  }
+  .item-md .time-yes, .time-no,
+  .item-ios .time-yes, .time-no {
+    padding-top: 0.5rem;
+    color: #1285e9;
+  }
+  .time-no {
+    color: #a3a3a4;
+  }
+  .remind-not {
+    color: #2196F3;
+  }
+}

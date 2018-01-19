@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>常见问题</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ion-card *ngFor="let item of items;let i=index" (click)="show(i)">
+    <ion-card-header>
+      {{item.title}}
+    </ion-card-header>
+    <ion-card-content *ngIf="className==i">
+      {{item.content}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

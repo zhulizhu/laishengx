@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>选择时间</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <div class="btn">
+    <button class="recam" *ngIf="item==1" (click)="chooseTime(1)">按日选择<img src="assets/img/qiehuan.png"></button>
+    <button class="recam" *ngIf="item==2" (click)="chooseTime(2)">按月选择<img src="assets/img/qiehuan.png"></button>
+    <button class="recam recam1" (click)="close()">完成</button>
+  </div>
+
+  <div class="times" *ngIf="item==1">
+    <ion-datetime placeholder="开始日期"  style="padding: 0" min="2017-08" class="text-color" [(ngModel)]="time.starttime" displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" doneText="确定" cancelText="取消"></ion-datetime>
+    <div>至</div>
+    <ion-datetime placeholder="结束日期" style="padding: 0" min="2017-08" class="text-color" [(ngModel)]="time.endtime" displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" doneText="确定" cancelText="取消"></ion-datetime>
+  </div>
+  <div class="times timex" *ngIf="item==2">
+    <ion-datetime placeholder="选择月份" style="padding: 0" min="2017-08" class="text-color" [(ngModel)]="startTime" displayFormat="YYYY-MM" pickerFormat="YYYY-MM" doneText="确定" cancelText="取消"></ion-datetime>
+  </div>
+  <div class="tim" (click)="cancel()">
+    <ion-icon  name="ios-trash-outline"></ion-icon>
+  </div>
+
+
+
+</ion-content>
+
+
+

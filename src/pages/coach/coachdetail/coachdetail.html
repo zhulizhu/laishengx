@@ -1,0 +1,169 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>私教信息</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ion-list>
+    <ion-item class="order">
+      <ion-thumbnail item-start>
+        <img src="{{item.thumb?item.thumb:'assets/img/people1.jpg'}}">
+        <div></div>
+      </ion-thumbnail>
+      <h2>教练简介:</h2>
+      <p>{{teacherDes}}</p>
+    </ion-item>
+  </ion-list>
+  <ul class="list-grou" >
+    <li class="list-group-item" >
+      <p>教练课表</p>
+      <p (click)="AllCourse(openid)" >查看全部课表</p>
+    </li>
+    <!--<li class="list-group-item">-->
+      <!--<div class="tile">-->
+        <!--<div class="fx">训练效果</div>-->
+      <!--</div>-->
+    <!--</li >-->
+    <li class="list-group-item" *ngFor="let list of itemx"  (click)="OrderClassTable(list.id,list.course_starttime,list.course_endtime,list.address,list.person,list.reminder,list.course_type)">
+      <div class="left">
+        <p>课程时间：<span class="text-color">{{list.course_starttime*1000|date:'HH:mm'}}-{{list.course_endtime*1000|date:'HH:mm'}}</span></p>
+        <p>{{list.toolname}}</p>
+        <p *ngIf="list.total>1">￥{{list.marketprice2}}（会员享受折扣）</p>
+        <p *ngIf="list.total==1">￥{{list.marketprice1}}（会员享受折扣）</p>
+      </div>
+      <div class="right">
+        <div class="tile">
+          <div class="fx" >预约</div>
+          <div class="turn"></div>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item" *ngIf="itemx.length" (click)="AllCourse(openid)" >
+      <ion-icon name="ios-arrow-down"></ion-icon>
+    </li>
+  </ul>
+  <ul class="list-group" (click)="location(item.storelat,item.storelng,item.storeaddress,item.city,item.province)">
+    <li class="list-group-item" >
+      <div>
+        <div class="item-img">
+          <img src="assets/img/dizhi.png" alt="">
+        </div>
+        <div class="item-right" >
+          <p>{{item.storeaddress}}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <ion-list class="clss">
+    <ion-item >
+      <img class="titl" src="assets/img/jianjie.png">
+    </ion-item>
+    <div class="text" *ngIf="!content"><p>完善中……</p></div>
+    <div class="text" *ngIf="content&&!contentArray.length&&!contentArray[0]">
+      <p>{{content}}</p>
+    </div>
+    <div *ngIf="contentArray.length&&contentArray[0]" class="text">
+      <p *ngFor="let item of contentArray">{{item}} </p>
+    </div>
+    <!--<div class="tip">-->
+      <!--&lt;!&ndash;<div *ngFor="let itemn of item.labelname">{{itemn}}</div>&ndash;&gt;-->
+    <!--</div>-->
+    <div class="row">
+      <!--<div class="col" *ngFor="let itemv of item.thumb_url">-->
+        <!--<img src="{{itemv}}">-->
+      <!--</div>-->
+    </div>
+    <div class="tile">
+      <div class="fx">训练效果</div>
+      <div class="turn"></div>
+    </div>
+    <div class="text" *ngIf="!content3"><p>完善中……</p></div>
+    <div class="text" *ngIf="content3&&!content3Array.length">
+      <p>{{content3}}</p>
+    </div>
+    <div *ngIf="content3Array.length" class="text">
+      <p *ngFor="let item of content3Array">{{item}} </p>
+    </div>
+    <div class="tile">
+      <div class="fx">适合人群</div>
+      <div class="turn"></div>
+    </div>
+
+    <div class="text" *ngIf="!content4"><p>完善中……</p></div>
+    <div class="text" *ngIf="content4&&!content4Array.length">
+      <p>{{content4}}</p>
+    </div>
+    <div  class="text" *ngIf="content4Array.length">
+      <p *ngFor="let item of content4Array">{{item}} </p>
+    </div>
+    <ion-item >
+      <img class="titl" src="assets/img/zhuyi.png">
+    </ion-item>
+
+    <div class="text" *ngIf="!content2"><p>完善中……</p></div>
+    <div class="text" *ngIf="content2&&!content2Array.length">
+      <p>{{content2}}</p>
+    </div>
+    <div class="text" *ngIf="content2Array.length">
+      <p *ngFor="let item of content2Array">{{item}} </p>
+    </div>
+
+    <ion-item >
+      <img class="titl" src="assets/img/liucheng.png">
+    </ion-item>
+    <div class="row row1">
+      <div class="col">
+        <div class="col-box">
+          <img src="assets/img/jianshen.png">
+          <h4>确认健身内容</h4>
+          <div>1</div>
+        </div>
+
+      </div>
+      <div class="col">
+        <div class="col-box">
+          <img src="assets/img/zhifu.png">
+          <h4>在线支付预约</h4>
+          <div>2</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-box">
+          <img src="assets/img/saoma.png">
+          <h4>提前扫码入场</h4>
+          <div>3</div>
+        </div>
+      </div>
+    </div>
+    <div class="row row1">
+      <div class="col">
+        <div class="col-box">
+          <img src="assets/img/queren.png">
+          <h4>教练指导健身</h4>
+          <div>4</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-box">
+          <img src="assets/img/tianxie.png">
+          <h4>教练填写资料</h4>
+          <div>5</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-box">
+          <img src="assets/img/jieguo.png">
+          <h4>确认结课离场</h4>
+          <div>6</div>
+        </div>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full (click)="OrderClass(item.id,item.course_starttime,item.course_endtime,item.storeaddress,item.person,item.reminder,item.course_type)">立即预约</button>
+  </ion-toolbar>
+</ion-footer>
+

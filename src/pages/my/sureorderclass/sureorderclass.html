@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>确认合约</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ul class="list-group">
+    <li class="list-group-item" >
+        <div class="item-right" >
+          <p>合约方式</p>
+          <span>{{item.name}}</span>
+       </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>任务次数</p>
+        <span >{{item.value}}次</span>
+      </div>
+    </li>
+    <!--<li class="list-group-item" >-->
+      <!--<div class="item-right" >-->
+        <!--<p>时间限制</p>-->
+        <!--<span class="text-color">{{contractData.timeSlice}}</span>-->
+      <!--</div>-->
+    <!--</li>-->
+  </ul>
+  <ul class="list-group">
+    <!--<li class="list-group-item" (click)="buyCard()">-->
+      <!--<div class="item-right" >-->
+        <!--<p>会员卡优惠折扣</p>-->
+        <!--<span class="text-color">还未开通</span>-->
+        <!--<span><ion-icon name="arrow-forward"></ion-icon></span>-->
+      <!--</div>-->
+    <!--</li>-->
+    <!--<li class="list-group-item" >-->
+      <!--<div class="item-right" >-->
+        <!--<p>抵用券</p>-->
+        <!--<span>-1次任务课时</span>-->
+        <!--<span><ion-icon name="arrow-forward"></ion-icon></span>-->
+      <!--</div>-->
+    <!--</li>-->
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>费用合计</p>
+        <span class="text-color">￥{{item.price}}</span>
+      </div>
+    </li>
+  </ul>
+  <ion-list radio-group class="lis-pay">
+    <ion-list-header>
+      购买方式
+    </ion-list-header>
+    <ion-item>
+      <ion-label><img class="img1" src="assets/img/weixin.png"></ion-label>
+      <ion-label>微信支付</ion-label>
+      <ion-label><span>推荐</span></ion-label>
+      <ion-radio checked="true" value="go"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <!--<ion-list class="agree" radio-group [(ngModel)]="agree">-->
+    <!--<ion-item>-->
+      <!--<ion-label>我已阅读并同意<span (click)="read()">《合伙人服务条款》</span></ion-label>-->
+      <!--<ion-radio value="1" item-start></ion-radio>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+  <ion-list class="agree" >
+    <ion-item>
+      <ion-label>我已阅读并同意<span (click)="read()">《合伙人服务条款》</span></ion-label>
+      <!--<ion-radio value="1" item-start></ion-radio>-->
+      <ion-checkbox [(ngModel)]="agree"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full (click)="sure(item.id,item.price)">立即支付</button>
+  </ion-toolbar>
+</ion-footer>
+
+

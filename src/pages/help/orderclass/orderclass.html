@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>{{course_type==3?'预约健身':'预约健身'}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ul class="list-group">
+    <li class="list-group-item" >
+        <div class="item-right">
+        <!--<div class="item-right" (click)="ProjeModal()" >-->
+          <p>健身项目</p>
+          <span>{{course_type==3?'自助':'团课'}}</span>
+       </div>
+    </li>
+    <li class="list-group-item">
+      <div class="item-right" >
+        <p>时间</p>
+        <span>{{timeYd*1000|date:'MM月dd日'}}</span>
+        <span class="text-color frl" >{{startTime*1000|date:'HH:mm'}}—{{endTime*1000|date:'HH:mm'}}</span>
+        <!--<span class="frl">-->
+            <!--<ion-datetime style="padding:0"-->
+                          <!--(ionChange)="selectTime(startTime)"-->
+                          <!--class="text-color"-->
+                          <!--[(ngModel)]="startTime"-->
+                          <!--displayFormat="HH:mm"-->
+                          <!--pickerFormat="HH mm"-->
+                          <!--[min]="timeMin|date:'HH:mm'"-->
+                          <!--[max]="timeMax|date:'HH:mm'" doneText="确定" cancelText="取消">-->
+            <!--</ion-datetime>-->
+        <!--</span>-->
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>地点</p>
+        <span>{{storeaddress?storeaddress:'暂无'}}</span>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="item-right" >
+        <p>人数</p>
+        <span><span>{{item.total}}</span>人</span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>价格</p>
+        <span class="text-color">￥<span>{{item.marketprice}}</span></span>
+      </div>
+    </li>
+  </ul>
+  <ul class="list-group">
+    <li class="list-group-item" *ngIf="btnYesName==0">
+      <div class="item-right" >
+        <p>会员卡优惠折扣</p>
+        <span class="text-color">{{discountprice==0?'还未开通':discountprice+'元'}}</span>
+        <span><ion-icon name="arrow-forward"></ion-icon></span>
+      </div>
+    </li>
+    <!--<li class="list-group-item"  (click)="buyCoupons()">-->
+    <li class="list-group-item" *ngIf="btnYesName==0">
+      <div class="item-right" >
+        <p>抵用券</p>
+        <!--<span *ngIf="couponNum>0" (click)="buyCoupons()"></span>-->
+        <span *ngIf="couponNum==0">暂无</span>
+        <span *ngIf="couponNum>0" (click)="buyCoupons(couponsList,realprice)">{{couponNum}}张可用<ion-icon name="arrow-forward"></ion-icon></span>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="item-right">
+        <p>费用合计</p>
+        <span class="text-color">￥
+          <!--<span *ngIf="couponNum==0">{{price}}</span>-->
+          <span>{{price}}</span>
+          <!--<span *ngIf="couponNum>0&&coupons.backtype==1">{{item.marketprice*coupons._backmoney}}</span>-->
+          <!--<span *ngIf="couponNum>0&&coupons.backtype==2">{{item.marketprice-coupons._backmoney}}</span>-->
+        </span>
+      </div>
+    </li>
+  </ul>
+
+  <ion-list *ngIf="course_type==3">
+    <ion-item style="padding-bottom: 10px;">
+      购买方式
+      <p item-end class="person per">
+        <button class="{{btnYes}}" (click)="only()" >单课支付</button>
+        <button class="{{btnNo}}" (click)="prompt()">合约支付</button>
+      </p>
+    </ion-item>
+  </ion-list>
+  <ion-list radio-group class="lis-pay" *ngIf="btnYesName==0" [(ngModel)]="payType">
+
+    <ion-item>
+      <ion-label><img class="img1" src="assets/img/weixin.png"></ion-label>
+      <ion-label>微信支付</ion-label>
+      <ion-label><span>推荐</span></ion-label>
+      <ion-radio  value="0"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label><img class="img1" src="assets/img/yu.png"></ion-label>
+      <ion-label>余额支付</ion-label>
+      <!--<ion-label><span>推荐</span></ion-label>-->
+      <ion-radio value="1"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <div class="notice">
+    <p>{{reminder?reminder:'温馨提示：本次为自助健身预约，超过时间段按时元收费，谢谢合作！'}}</p>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full (click)="subPresent(coupons.id,price)">确定预约</button>
+  </ion-toolbar>
+</ion-footer>
+
+

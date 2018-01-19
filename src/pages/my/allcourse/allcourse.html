@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>我的课程</ion-title>
+  </ion-navbar>
+  <ion-segment [(ngModel)]="info" id="monitor">
+    <!--<ion-segment-button value="all">-->
+      <!--<span>全部</span>-->
+    <!--</ion-segment-button>-->
+    <ion-segment-button value="payment" (click)="courseListClick(0)">
+      <span>待付款</span>
+    </ion-segment-button>
+    <ion-segment-button value="use" (click)="courseListClick(1)">
+      <span>待使用</span>
+    </ion-segment-button>
+    <ion-segment-button value="using" (click)="courseListClick(2)">
+      <span>使用中</span>
+    </ion-segment-button>
+    <ion-segment-button value="comment" (click)="courseListClick(3)">
+      <span>待评论</span>
+    </ion-segment-button>
+    <ion-segment-button value="refund" (click)="courseListClick(6)">
+      <span>退款</span>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content [ngSwitch]="info" class="all-content">
+  <div (swipe)="swipeEvent($event)">
+    <ion-list no-lines class="list-top">
+      <div *ngFor="let item of list">
+        <ion-item class="order" (click)="courseDetail(item.status,item.id,item.goods.course_type,item.goods.total,item.refundstate)">
+          <ion-thumbnail item-start>
+            <img src="{{item.goods.thumb?item.goods.thumb:'assets/img/people1.jpg'}}">
+            <div></div>
+          </ion-thumbnail>
+          <h2>
+            {{item.goods.title}}
+            <span *ngIf="item.goods.course_type==1">(私教)</span>
+            <span *ngIf="item.goods.course_type==2">(团课)</span>
+            <span *ngIf="item.goods.course_type==3">(自助)</span>
+          </h2>
+          <p>时间：{{item.goods.course_starttime*1000|date:'yyyy-MM-dd'}}
+            <span>{{item.goods.course_starttime*1000|date:'HH:mm'}}—{{item.goods.course_endtime*1000|date:'HH:mm'}}</span>
+          </p>
+          <p>地址：{{item.goods.store.address}}</p>
+        </ion-item>
+        <p></p>
+        <ion-item>
+          <button ion-button item-end outline (click)="payOrder(item.id,item.goods)" *ngIf="type==0">去付款</button>
+          <button ion-button item-end outline (click)="cancelOrderNo(item.id,type)" *ngIf="type==0">删除订单</button>
+          <button ion-button item-end outline *ngIf="type==1&&item.refundstate==0&&item.goods.course_endtime>nowTime" (click)="start(item.id,item.goods.course_starttime,item.goods.course_endtime)">开始上课</button>
+          <button ion-button item-end outline *ngIf="type==1&&item.refundstate==1&&item.goods.course_endtime>nowTime">退款中</button>
+          <button ion-button item-end outline *ngIf="type==1&&item.paytype!=13&&item.refundstate==0&&item.goods.course_endtime<nowTime">课程结束</button>
+          <button ion-button item-end outline (click)="cancelOrderYes(item.id,1,item.price)" *ngIf="type==1&&item.paytype!=13&&item.refundstate==0&&item.goods.course_endtime>nowTime">取消订单</button>
+          <button ion-button item-end outline (click)="cancelOrderYes(item.id,0,item.price)" *ngIf="type==1&&item.paytype!=13&&item.refundstate==0&&item.goods.course_endtime<nowTime">删除订单</button>
+          <button ion-button item-end outline  *ngIf="type==2"  (click)="courseDetail(item.status,item.id,item.goods.course_type,item.goods.total)">{{item.goods.course_endtime>nowTime?item.statusstr:'课程已结束'}}</button>
+          <button ion-button item-end outline *ngIf="type==3" (click)="comment(item.id,item.goods.goosid)">{{item.statusstr=='待评价'?'去评价':'已完成'}}</button>
+          <button ion-button item-end outline *ngIf="type==6">已退款</button>
+        </ion-item>
+      </div>
+    </ion-list>
+    <p  class="no-ti" *ngIf="!list.length">
+      暂无
+      <span *ngIf="type==0">待付款</span>
+      <span *ngIf="type==1">待使用</span>
+      <span *ngIf="type==2">上课记录</span>
+      <span *ngIf="type==3">待评价</span>
+      <span *ngIf="type==6">退款记录</span>
+    </p>
+  </div>
+</ion-content>
+

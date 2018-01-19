@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>时间表</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ion-segment [(ngModel)]="info" id="monitor">
+    <ion-segment-button *ngFor="let item of week" value="base_{{item.id}}"
+                        (click)="getTeacherList(item)">
+      <div class="monitor-time">
+        <p>星期{{item.week}}</p>
+      </div>
+      <div class="top">
+        <div class="tile">
+          <div class="fx">{{item.time}}</div>
+        </div>
+      </div>
+      <p class="week">{{item.week}}</p>
+
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-list>
+    <ion-item *ngFor="let item of itemx">
+      <div class="text">
+        <p>课程时间：<span>{{item.course_starttime*1000|date:'HH:mm'}}-{{item.course_endtime*1000|date:'HH:mm'}}</span></p>
+        <!--<p>课程时间：<span>{{item.course_starttime}}</span></p>-->
+        <p>{{item.toolname}}</p>
+        <p>￥{{item.marketprice1}}（会员享受折扣）</p>
+      </div>
+      <div class="btn" (click)="OrderClass(item.id,item.course_starttime,item.course_endtime,item.address,item.person,item.reminder,item.course_type)" >
+      <!--<div class="btn" (click)="OrderClass(item.id,item.course_starttime,item.course_type)" >-->
+        <button>预约</button>
+        <div class="tur"></div>
+      </div>
+    </ion-item>
+
+    <ion-infinite-scroll (ionInfinite)="doInfiniteMember($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多……">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <p *ngIf="!itemx.length" class="remind-not">暂无课时信息</p>
+  </ion-list>
+</ion-content>
+
+
+

@@ -1,0 +1,191 @@
+page-fitnessdetail{
+  .all-content {
+    background-color: #1b2838;
+  }
+  .segment-ios .segment-button,.segment-md .segment-button{
+    height: 2.2em!important;
+    line-height: 2em!important;
+    color: #00afff;
+    border-color: #00afff;
+    border-width: 1px;
+    border-style: solid;
+  }
+  .segment-ios .segment-button:not(:first-of-type),.segment-md .segment-button:not(:first-of-type) {
+    border-left-width: 0;
+  }
+  .segment-ios .segment-button:first-of-type,
+  .segment-md .segment-button:first-of-type{
+    border-top-left-radius: 12px!important;
+    border-bottom-left-radius: 12px!important;
+  }
+  .segment-ios .segment-button:last-of-type,
+  .segment-md .segment-button:last-of-type{
+    border-top-right-radius: 12px!important;
+    border-bottom-right-radius: 12px!important;
+  }
+  .segment-ios .segment-button.segment-activated,
+  .segment-md .segment-button.segment-activated{
+    background-color: #00afff;
+    color: #fff;
+    opacity: 1;
+  }
+  ul {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-padding-start: 0;
+    margin-top: 5px;
+    border-bottom: 10px solid #26384d;
+  }
+  .chart{
+    margin: 0 auto 5px;
+    border-bottom: 8px solid #202e3f;
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
+  }
+  .ziliao,.dz{
+    color: #fff;
+    font-size: 14px;
+    text-indent: 1em;
+    img{
+      width: 20px;
+      height: auto;
+      margin-right: 5px;
+    }
+  }
+  .row1 p{
+    color: #93969a;
+    text-align: center;
+    span{
+      color: #00afff;
+      font-size: 25px;
+      font-weight: bold;
+      margin-right: 5px;
+    }
+  }
+  .row1:last-child{
+    margin-bottom: 10px!important;
+    padding-bottom: 8px!important;
+    border-bottom: 5px solid #202e3f!important;
+  }
+  .dz{
+    border-top: 5px solid #202e3f!important;
+    margin: 10px 0;
+    padding :0 10px;
+    line-height: 29px;
+    overflow: hidden;
+    text-indent: 0;
+    span{
+      display: block;
+      float: left;
+    }
+    img{
+      display: block;
+      margin-top: 5px;
+      float: left;
+    }
+  }
+  .dz1{
+    border-bottom: 1px solid #202e3f!important;
+  }
+
+  table{
+    margin: 10px auto;
+    border-collapse:collapse;
+    tr{
+      border-bottom: 1px solid #35485f;
+      border-left: 1px solid #35485f;
+      border-right: 1px solid #35485f;
+      @media only screen and (min-width: 380px){
+        td,th{
+          padding: 5px 14px;
+        }
+      }
+      @media only screen and (max-width: 380px){
+        td,th{
+          padding: 5px 10px;
+        }
+      }
+      @media only screen and (max-width: 350px){
+        td,th{
+          padding: 5px;
+        }
+      }
+      td,th{
+        color: #fff;
+        width: 20%;
+        text-align: center;
+        font-size: 12px;
+        //border-right: 1px solid #35485f;
+        white-space: nowrap;
+      }
+
+      td:last-child,th:last-child{
+        border-right: none;
+      }
+    }
+    tr:first-child{
+      background: #35485f;
+    }
+  }
+  .text{
+    color: #fff;
+    margin:20px 10px;
+    font-size: 12px;
+  }
+  .rili{
+    border-top: none!important;
+  }
+  .more{
+    float: right!important;
+    color: #00afff;
+    font-size: 12px;
+  }
+  .item-ios ion-avatar[item-start],
+  .item-md ion-avatar[item-start]{
+    margin: -28px 16px 8px 0;
+  }
+  ion-label{
+    white-space: inherit;
+  }
+  .item-ios,.item-md{
+    background-color: #1a2635;
+    h2,h3,p{
+      color: #eaebeb;
+    }
+    h2{
+      font-size: 14px;
+    }
+
+    h3{
+      font-size: 12px;
+    }
+  }
+  .list-ios .item-block,
+  .list-ios .item-block{
+    border-bottom: 5px solid #202e3f!important;
+  }
+  .list-ios .item-block .item-inner,
+  .list-md .item-block .item-inner{
+    border-bottom: none;
+  }
+  //.list-ios > .item-block:last-child,
+  //.list-md > .item-block:last-child{
+  //  border-bottom: none;
+  //}
+  .list-ios > .item-block:first-child,
+  .list-md > .item-block:first-child{
+    border-top: none;
+  }
+  .list-ios > .item-block:last-child .item-inner,
+  .list-md > .item-block:last-child .item-inner{
+    border-bottom: none;
+  }
+  .list-ios,.list-md{
+    padding-left: 0;
+    margin-left: 16px;
+  }
+
+
+}

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>超级会员</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <div class="top">
+    <p (click)="problem()"><img class="notice" src="assets/img/shuoming.png"></p>
+    <img class="attr" src="assets/img/huangguan.png">
+    <h4>小朱朱</h4>
+  </div>
+  <ion-card class="card">
+    <ion-card-header>
+      <img class="log" src="assets/img/banner.png">
+      <div class="tile">
+        <p>莱盛健身会员卡</p>
+        <p><img src="assets/img/log-wenzi.png"></p>
+      </div>
+      <div class="num">
+        <p>NO:2551125655</p>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <div id="cov">
+        <div>
+          <h2>￥368.00</h2>
+          <p>剩余金额</p>
+        </div>
+      <svg width="160" id="svg6" height="160" viewbox="0 0 160 160">
+        <circle cx="80" cy="80" r="70" class="circle1" stroke-width="8" stroke-linecap="round" stroke="#326789" fill="none"
+                transform="matrix(0,-1,1,0,0,160)"></circle>
+        <circle cx="80" cy="80" r="70" class="circle2" stroke-width="8" style="" stroke-linecap="round" stroke="#65c1f4" fill="none"
+                transform="matrix(0,-1,1,0,0,160)"
+                stroke-dasharray="0 100"></circle>
+      </svg>
+      </div>
+      <button ion-button (click)="renew()">立即续费</button>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item class="titl">
+      <p class="more"><img class="left" src="assets/img/left.png">更多特权<img class="right" src="assets/img/right.png"></p>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/zhe.png">
+      </ion-thumbnail>
+      <h2>会员卡受益</h2>
+      <p>预约私教，团课健身享受9折优惠。</p>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/mian.png">
+      </ion-thumbnail>
+      <h2>满员排队特权</h2>
+      <p>自动补排空位，若未排上自动退款。</p>
+    </ion-item>
+    <ion-item (click)="achieve()">
+      <ion-thumbnail item-start>
+        <img src="assets/img/mian.png">
+      </ion-thumbnail>
+      <h2>成就排名</h2>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+

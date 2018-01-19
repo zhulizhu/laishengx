@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>我的卡券</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ion-list *ngIf="lists.length">
+    <div *ngFor="let item of lists">
+      <ion-item *ngIf="item.timeend>nowTime" class="coupon-yes" (click)="coupon(item,1)">
+        <h1>{{item.couponname}}<span>{{item.backstr}}</span></h1>
+        <p class="time-yes">有效期至{{item.timeend*1000|date:'yyyy年MM月dd日'}}</p>
+        <p>{{item.title5}}，可转赠朋友使用</p>
+        <button ion-button clear item-end><span *ngFor="let i of item.tagtitle">{{i}}</span></button>
+      </ion-item>
+      <ion-item *ngIf="item.timeend<nowTime" class="coupon-no" (click)="coupon(item.id,0)">
+        <h1>{{item.couponname}}<span>{{item.backstr}}</span></h1>
+        <p class="time-no">有效期至{{item.timeend*1000|date:'yyyy年MM月dd日'}}</p>
+        <p>{{item.title5}}，可转赠朋友使用</p>
+        <button ion-button clear item-end><span *ngFor="let i of item.tagtitle">{{i}}</span></button>
+      </ion-item>
+    </div>
+
+  </ion-list>
+  <p class="remind-not" *ngIf="!lists.length">你暂无优惠券</p>
+</ion-content>
+

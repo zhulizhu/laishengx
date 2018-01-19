@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>加入合伙</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="all-content">
+  <div class="banner-img">
+    <img src="assets/img/banner-partner.jpg" alt="">
+  </div>
+  <h3>欢迎加入<span>莱盛健身</span>，请填写申请信息。</h3>
+  <!--<input type="text"  placeholder="请输入你的真实姓名"/>-->
+  <ion-list>
+    <ion-item>
+      <p item-start>姓名:</p>
+      <ion-input required type="text" readonly="false" [(ngModel)]="realname" placeholder="请输入你的真实姓名"></ion-input>
+      <!--<input required type="text" class="text-input" readonly="false" [(ngModel)]="realname" placeholder="请输入你的真实姓名"/>-->
+    </ion-item>
+    <ion-item>
+      <p item-start>手机号：</p>
+      <ion-input required type="text" readonly="false" [(ngModel)]="mobile" placeholder="请输入您的真实联系方式"></ion-input>
+    </ion-item>
+    <ion-item>
+      <p item-start>微信号：</p>
+      <ion-input required type="text" readonly="false" [(ngModel)]="weinum" placeholder="请输入微信号"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div class="two"></div>
+  <ion-list class="list-partner">
+    <ion-item  class="partner">
+      <ion-avatar item-start>
+        <img src="assets/img/king.png">
+      </ion-avatar>
+      <h2>合伙特权</h2>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/img/sheng.jpg">
+      </ion-avatar>
+      <h2>天天有收益</h2>
+      <p>加入合伙人后，每天都有看得到的收益。</p>
+    </ion-item>
+    <ion-item class="must">
+      <h2>用户须知</h2>
+      <p>1.尊敬的用户，在提交申请请认真阅读股东服务条款。</p>
+      <p>2.提交申请后，请保持电话畅通，客服会与您联系。</p>
+    </ion-item>
+  </ion-list>
+  <!--<ion-list class="agree" radio-group [(ngModel)]="display">-->
+    <!--<ion-item>-->
+      <!--<ion-label>我已阅读<span (click)="read()">《合伙人服务条款》</span></ion-label>-->
+      <!--<ion-radio value="1" item-start></ion-radio>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+  <ion-list class="agree" >
+    <ion-item>
+      <ion-label>我已阅读并同意<span (click)="read()">《合伙人服务条款》</span></ion-label>
+      <!--<ion-radio value="1" item-start></ion-radio>-->
+      <ion-checkbox [(ngModel)]="display"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <button ion-button full large (click)="sub()">提交申请</button>
+</ion-content>
+<!--<ion-footer>-->
+  <!--<button ion-button full large (click)="Coachgrade()">提交申请</button>-->
+<!--</ion-footer>-->

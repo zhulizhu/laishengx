@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>购买会员</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/img/banner.png">
+      </ion-avatar>
+      <h2>小朱朱</h2>
+      <p>您还未开通会员哦</p>
+    </ion-item>
+  </ion-card>
+  <ion-list radio-group class="lis">
+    <ion-list-header>
+      莱盛会员
+    </ion-list-header>
+
+    <ion-item class="item-f1">
+      <ion-label>￥500</ion-label>
+      <ion-label>到账金额500元</ion-label>
+      <ion-radio checked="true" value="go"></ion-radio>
+    </ion-item>
+    <ion-item class="item-f1">
+      <ion-label>￥500</ion-label>
+      <ion-label>到账金额500元</ion-label>
+      <ion-radio value="rust"></ion-radio>
+    </ion-item>
+    <ion-item class="item-f1">
+      <ion-label>￥500</ion-label>
+      <ion-label>到账金额500元</ion-label>
+      <ion-radio value="ru" ></ion-radio>
+    </ion-item>
+    <ion-item class="item-f1">
+      <ion-label>￥500</ion-label>
+      <ion-label>到账金额500元</ion-label>
+      <ion-radio value="rud"></ion-radio>
+    </ion-item>
+    <ion-list-header>
+      注：优惠券不同会员卡叠加使用
+    </ion-list-header>
+  </ion-list>
+  <ion-list radio-group class="lis-pay">
+    <ion-list-header>
+      支付方式
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label><img class="img1" src="assets/img/weixin.png"></ion-label>
+      <ion-label>微信支付</ion-label>
+      <ion-label><span>推荐</span></ion-label>
+      <ion-radio checked="true" value="go"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full (click)="sure()">立即支付</button>
+  </ion-toolbar>
+</ion-footer>
+

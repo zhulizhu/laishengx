@@ -1,0 +1,217 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{course_type==3?'预约自助':'健身课程'}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <div *ngIf="course_type==2">
+    <ion-list>
+      <ion-item class="order" >
+        <ion-thumbnail item-start>
+          <img src="{{item.thumb}}">
+          <div></div>
+        </ion-thumbnail>
+        <h2>教练简介:</h2>
+        <p>{{teacherDes}}</p>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="course_type==3">
+    <ion-slides #mySlider style="width:100%;height:95px">
+      <ion-slide>
+        <img src="assets/img/banner.png">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/banner.png">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/banner.png">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/banner.png">
+      </ion-slide>
+    </ion-slides>
+    <div class="store">
+      <h4>{{item.storename}}</h4>
+      <div class="tool" *ngIf="item.devices!=0">
+        <div *ngFor="let items of item.devices">
+          <img src="{{items.thumb?items.thumb:'assets/img/zizhu-active.png'}}"/>
+          <p>{{items.name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div>
+        <div class="item-img">
+          <img src="assets/img/jianzhi.png" alt="">
+        </div>
+        <div class="item-right">
+          <p><span *ngFor="let itemn of item.labelname">{{itemn}}.</span></p>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <div class="item-img">
+          <img src="assets/img/kejia.png" alt="">
+        </div>
+        <div class="item-right">
+          <p>￥{{item.marketprice}}</p>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <div class="item-img">
+          <img src="assets/img/keshi.png" alt="">
+        </div>
+        <div class="item-right">
+          <p><span>{{item.course_starttime*1000 | date:'yyyy-MM-dd'}}</span> （<span>{{week}}</span>）<span
+            class="time"><span>{{item.course_starttime*1000 | date:'HH:mm'}}</span> -<span>{{item.course_endtime*1000 | date:'HH:mm'}}</span></span>
+          </p>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item"
+        (click)="location(item.storelat,item.storelng,item.storeaddress,item.city,item.province)">
+      <div>
+        <div class="item-img">
+          <img src="assets/img/dizhi.png" alt="">
+        </div>
+        <div class="item-right">
+          <p>{{item.storeaddress}}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <ion-list class="clss">
+    <ion-item>
+      <img class="titl" src="{{course_type==3?'assets/img/mendianjiesao.png':'assets/img/jianjie.png'}}">
+    </ion-item>
+    <div class="text" *ngIf="!content">
+      <p>完善中……</p>
+    </div>
+    <div class="text" *ngIf="content">
+      <p>{{content}}</p>
+    </div>
+
+    <div>
+      <div class="tip" *ngIf="course_type==2">
+        <div *ngFor="let itemn of item.labelname">{{itemn}}</div>
+      </div>
+      <div class="row">
+        <div class="col" *ngFor="let itemv of item.thumb_url">
+          <img src="{{itemv?itemv:'assets/img/zhao.png'}}">
+        </div>
+      </div>
+    </div>
+
+    <!--<div class="row">-->
+      <!--<div class="col">-->
+        <!--<img src="assets/img/zhao.png">-->
+      <!--</div>-->
+      <!--<div class="col">-->
+        <!--<img src="assets/img/zhao.png">-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--健身优势-->
+    <div>
+      <div class="tile">
+        <div class="fx">健身优势</div>
+        <div class="turn"></div>
+      </div>
+      <div class="text" *ngIf="!content1">
+        <p>完善中……</p>
+      </div>
+      <div class="text" *ngIf="content1&&!content1Array.length">
+        <p style="text-indent: 2px">{{content1}} </p>
+      </div>
+      <div *ngIf="content1Array.length" class="text">
+        <p *ngFor="let item of content1Array">{{item}} </p>
+      </div>
+    </div>
+
+
+    <!--适合人群-->
+    <div *ngIf="course_type==2">
+      <div class="tile">
+        <div class="fx">适合人群</div>
+        <div class="turn"></div>
+      </div>
+      <div class="text" *ngIf="!content4"><p>暂无介绍……</p></div>
+      <div class="text" *ngIf="!content4Array.length">
+        <p>{{content4}}</p>
+      </div>
+      <div class="text" *ngIf="content4Array.length">
+        <p *ngFor="let item of content4Array">{{item}}</p>
+      </div>
+    </div>
+    <!--注意事项-->
+    <div>
+      <ion-item>
+        <img class="titl" src="assets/img/zhuyi.png">
+      </ion-item>
+      <div class="text" *ngIf="!content2">
+        <p>完善中……</p>
+      </div>
+      <div class="text" *ngIf="content2&&!content2Array.length">
+        <p>{{content1}} </p>
+      </div>
+
+      <div *ngIf="content2Array.length" class="text">
+        <p *ngFor="let item of content2Array">{{item}}</p>
+      </div>
+    </div>
+
+    <ion-item>
+      <img class="titl" src="assets/img/liucheng.png">
+    </ion-item>
+    <div class="row row1">
+      <div class="col">
+        <div class="col-box">
+          <img src="assets/img/zhifu.png">
+          <h4>在线支付预约</h4>
+          <div>1</div>
+        </div>
+
+      </div>
+      <div class="col">
+        <div class="col-box">
+          <img src="assets/img/jianshen.png">
+          <h4>生成入场信息</h4>
+          <div>2</div>
+        </div>
+      </div>
+    </div>
+    <div class="row row1">
+      <div class="col">
+        <div class="col-box">
+          <img src="assets/img/saoma.png">
+          <h4>提前扫码入场</h4>
+          <div>3</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-box">
+          <img src="assets/img/queren.png">
+          <h4>自助健身锻炼</h4>
+          <div>4</div>
+        </div>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full
+            (click)="OrderClass(item.id,item.course_starttime,item.course_endtime,item.storeaddress,item.reminder,item.course_type)">
+      立即预约
+    </button>
+  </ion-toolbar>
+</ion-footer>
+

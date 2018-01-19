@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>课时明细</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <div class="top">
+    <ion-datetime  displayFormat="YYYY-MM" min="2017-08" max="{{maxDate}}"
+                   doneText="确定" cancelText="取消" [(ngModel)]="myDate" (ionChange)="changeTime(myDate)"></ion-datetime>
+    <ion-list>
+      <ion-item>
+        <h2>{{today*1000|date:'yyyy年MM月'}}</h2>
+        <p>课时购买<span>{{totalZong?totalZong:0}}</span>课时,抵用课时<span>{{cost_total?cost_total:0}}</span>课时</p>
+        <ion-avatar item-end>
+          <img src="assets/img/zhanghumingxi.png">
+        </ion-avatar>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ul class="list-group" *ngIf="cost.length">
+    <li class="list-group-item" *ngFor="let item of cost">
+      <div class="top">
+         <div class="net"></div>
+        <span>-</span>
+        <span>1次</span>
+      </div>
+      <div class="mx">
+        <p>{{item.title}}{{item.course_type=='3'?'（自助课程）':item.course_type=='1'?'（私教课程）':''}}</p>
+        <p>{{item.createtime*1000|date:'yyyy-MM-dd  HH:mm'}}</p>
+      </div>
+    </li>
+  </ul>
+  <ul *ngIf="recharge.length" >
+    <li class="list-group-item" *ngFor="let item of recharge">
+      <div class="top">
+        <div class="net"></div>
+        <span>+</span>
+        <span>{{item.value}}</span>
+      </div>
+      <div class="mx">
+        <p>{{item.name}}</p>
+        <p>{{item.createtime*1000|date:'yyyy-MM-dd  HH:mm'}}</p>
+      </div>
+    </li>
+  </ul>
+  <p class="remind-not" *ngIf="!cost.length&&!recharge.length">暂无明细记录</p>
+  <!--<ion-infinite-scroll (ionInfinite)="doInfinite($event)">-->
+    <!--<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中……">-->
+    <!--</ion-infinite-scroll-content>-->
+  <!--</ion-infinite-scroll>-->
+</ion-content>
+

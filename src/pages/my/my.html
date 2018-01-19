@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>我的</ion-title>
+  </ion-navbar>
+  <ion-segment [(ngModel)]="info" id="monitor" (ionChange)="percentA(user.times,info=='all'?user.stage[0].stage_times:info=='payment'?user.stage[1].stage_times:user.stage[2].stage_times)">
+    <ion-segment-button value="all">
+      <span>适应阶段</span>
+    </ion-segment-button>
+    <ion-segment-button value="payment">
+      <span>提升阶段</span>
+    </ion-segment-button>
+    <ion-segment-button value="use">
+      <span>巩固阶段</span>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content class="all-content" [ngSwitch]="info">
+  <div (swipe)="swipeEvent($event)">
+    <ion-card>
+      <ion-card-content>
+        <div id="cov">
+          <div>
+            <h2>
+              {{user.times}}/
+              {{info=='all'?user.stage[0].stage_times:info=='payment'?user.stage[1].stage_times:user.stage[2].stage_times}}<span>课时</span></h2>
+          </div>
+          <svg width="160" id="svg6" height="160" viewbox="0 0 160 160">
+            <circle cx="80" cy="80" r="70" class="circle1" stroke-width="8" stroke-linecap="round" stroke="#326789" fill="none"
+                    transform="matrix(0,-1,1,0,0,160)"></circle>
+            <circle cx="80" cy="80" r="70" class="circle2" stroke-width="8" style="" stroke-linecap="round" stroke="#00afff" fill="none"
+                    transform="matrix(0,-1,1,0,0,160)"
+                    stroke-dasharray="0 100"></circle>
+          </svg>
+        </div>
+        <button ion-button >{{info=='all'?'适应阶段':info=='payment'?'提升阶段':'巩固阶段'}}</button>
+      </ion-card-content>
+    </ion-card>
+    <div class="row">
+      <div class="col">
+        <h2>{{user.times?user.times:0}}</h2>
+        <p>累计训练/次数</p>
+      </div>
+      <div class="col">
+        <h2>{{user.course_time?user.course_time:0}}</h2>
+        <p>累计时间/分钟</p>
+      </div>
+      <div class="col">
+        <h2>{{user.stay?user.stay:0}}</h2>
+        <p>累积天数</p>
+      </div>
+    </div>
+
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"  (click)="order()">
+      <div>
+        <div class="item-img">
+          <img src="assets/img/sijiao.png" alt="">
+        </div>
+        <div class="item-right" >
+          <p>我的私教</p>
+          <span><span class="order">去预约私教</span><ion-icon name="arrow-forward"></ion-icon></span>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item" *ngFor="let item of items" (click)="itemSelected(item.id)">
+      <div>
+        <div class="item-img">
+          <img src="{{item.icon}}" alt="">
+        </div>
+        <div class="item-right" >
+          <p>{{item.name}}</p>
+          <span><ion-icon name="arrow-forward"></ion-icon></span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</ion-content>

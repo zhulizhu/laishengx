@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>预约私教</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ul class="list-group">
+    <li class="list-group-item">
+        <div class="item-right">
+          <p>健身项目</p>
+          <!--没有选择时-->
+
+          <span *ngIf="item.total==2">减压健身</span>
+          <span *ngIf="item.total==1">{{course_type==3?'自助':course_type==2?'团课':'减压健身'}}</span>
+          <!--<span *ngIf="item.total==1" (click)="ProjeModal()">减压健身</span>-->
+          <!--有选择时-->
+              <!--<ion-select *ngIf="myTip==2" [(ngModel)]="gaming" >-->
+                <!--<ion-option value="nes">减压健身1</ion-option>-->
+                <!--<ion-option value="n64">减压健身2</ion-option>-->
+              <!--</ion-select>-->
+       </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>时间</p>
+        <span>
+          {{timeYd*1000|date:'MM月dd日'}}
+          <span class="text-color">{{startTime*1000|date:'HH:mm'}}—{{Endtime*1000|date:'HH:mm'}}</span>
+        </span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>地点</p>
+        <span>{{storeaddress}}</span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>授课方式</p>
+        <!--<span>1v2</span>-->
+        <div class="person" >
+          <button  class="{{personOne?'btn-active':''}} {{person==1||person==0?'show':'hide'}}" (click)="personNumber(1)">1 v 1</button>
+          <button class="{{personOne?'':'btn-active'}} {{person==2||person==0?'show':'hide'}}" (click)="personNumber(2)">1 v 2</button>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>价格</p>
+        <span>￥{{item.marketprice}}</span>
+      </div>
+    </li>
+  </ul>
+  <ul class="list-group">
+    <li class="list-group-item" *ngIf="btnYesName==0">
+      <div class="item-right" >
+        <p>会员卡优惠折扣</p>
+        <span class="text-color">{{discountprice==0?'还未开通':discountprice+'元'}}</span>
+        <span ><ion-icon name="arrow-forward"></ion-icon></span>
+      </div>
+    </li>
+    <li class="list-group-item" *ngIf="btnYesName==0">
+      <div class="item-right" >
+        <p>抵用券</p>
+        <span *ngIf="couponNum==0">暂无</span>
+        <span *ngIf="couponNum>0" (click)="buyCoupons(couponsList,realprice)">{{couponNum}}张可用<ion-icon name="arrow-forward"></ion-icon></span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>费用合计</p>
+        <span class="text-color">￥{{price}}</span>
+      </div>
+    </li>
+  </ul>
+  <ion-list>
+    <ion-item style="padding-bottom: 10px;">
+      购买方式
+      <p item-end class="person per">
+        <button class="{{btnYes}}" (click)="only()" >单课支付</button>
+        <button class="{{btnNo}}" (click)="prompt()">合约支付</button>
+      </p>
+    </ion-item>
+  </ion-list>
+  <ion-list radio-group class="lis-pay" *ngIf="btnYesName==0" [(ngModel)]="payType">
+    <ion-item>
+      <ion-label><img class="img1" src="assets/img/weixin.png"></ion-label>
+      <ion-label>微信支付</ion-label>
+      <ion-label><span>推荐</span></ion-label>
+      <ion-radio value="0"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label><img class="img1" src="assets/img/yu.png"></ion-label>
+      <ion-label>余额支付</ion-label>
+      <ion-radio value="1"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <div class="notice">
+    <p>{{reminder?reminder:'温馨提示：开课前6小时取消预约，支持全额退款；开始时间6小时候取消预约，不支持退款。'}}</p>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full (click)="sure(coupons.id,price)">立即支付</button>
+  </ion-toolbar>
+</ion-footer>
+
+

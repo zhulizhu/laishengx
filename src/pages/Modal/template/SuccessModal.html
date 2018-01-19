@@ -1,0 +1,14 @@
+<ion-content class="modal-bg">
+  <div class="cover-center">
+      <div class="success">
+        <img src="assets/img/success.png" alt="">
+      </div>
+      <h2>{{sureType==0?'预约成功':'购买成功'}}</h2>
+      <p>亲爱的莱盛健身学员，恭喜你，{{sureType==0?'预约成功，快去我的课程看看吧！！！':'购买成功，快去购买课程吧！！！'}}</p>
+      <!--<ion-img class="success-qr"  data-src="assets/img/success-qr.jpg" src="assets/img/success-qr.jpg"></ion-img>-->
+      <ion-list>
+        <button ion-button class="success-sure" (click)="sure(sureType)">确定</button>
+      </ion-list>
+  </div>
+</ion-content>
+

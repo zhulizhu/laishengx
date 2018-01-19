@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>提现</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ion-list>
+    <ion-item>
+      <div item-left>莱盛钱包</div>
+      <span>账户余额</span>
+      <p>账户余额:{{credit}}</p>
+      <p>大于100元可提现</p>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <div item-left>提现金额</div>
+      <span class="money" item-left>￥</span>
+      <ion-input type="number"[(ngModel)]="money" placeholder="最低提现￥100.00"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div class="notice">
+    <p>温馨提示：客户提交提现申请后，门店管理人员会在5个工作日内联系您，确认退款金额，谢谢合作！</p>
+  </div>
+</ion-content>
+<ion-footer>
+  <button ion-button full large (click)="recharge()">提现</button>
+</ion-footer>

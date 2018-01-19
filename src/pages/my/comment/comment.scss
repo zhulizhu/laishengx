@@ -1,0 +1,228 @@
+page-comment{
+  .all-content{
+    background-color: #1b2838;
+  }
+  .scroll-content{
+    padding:0 1rem;
+  }
+
+  .end>h2{
+    color:white;
+    font-size:1.5rem;
+  }
+  .end>p:first-child{
+    padding-bottom: 0.5rem;
+  }
+  .end>p{
+    color:#d8d8d8;
+    font-size:1.3rem;
+  }
+  ion-list-header ion-label{
+    text-align: center;
+    font-size:1.5rem;
+  }
+
+  .list-header-md,
+  .list-header-ios{
+    border-bottom: 1px solid #26384d;
+  }
+  .list-header-md {
+    padding-left: 16px;
+    margin-bottom: 0;
+    min-height: 4.5rem;
+    border-top: initial;
+    font-size: 1.4rem;
+    color: #757575;
+  }
+  .list-md,
+  .list-ios {
+    margin: 1rem 0;
+    box-shadow: 1px 5px 10px 3px #0d131a;
+
+  }
+  .item-md,
+  .item-ios {
+    background-color: #16202d;
+  }
+  .item-md:first-child,
+  .item-ios:first-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  .item-md:last-child,
+  .item-ios:last-child {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+  .list-md > .item-block:first-child,
+  .list-ios > .item-block:first-child {
+    border-top: none;
+  }
+  .list-md > .item-block:last-child,
+  .list-ios > .item-block:last-child {
+    border-bottom: none;
+  }
+  .list-md .item-block .item-inner,
+  .list-ios .item-block .item-inner {
+    border-bottom: 1px solid #26384d;
+  }
+  .item-block {
+    padding:0 0.5rem;
+
+    min-height: inherit;
+  }
+  .item-md,
+  .item-ios {
+    color: #fdfafa;
+  }
+  .comment{
+    ion-label div{
+      display: flex;
+      display: -webkit-flex;
+    }
+    ion-label div>span{
+      min-width:80px;
+    }
+  }
+
+  ion-label div{
+    font-size: 1.3rem;
+    color: #dddddd;
+    font-weight: normal;
+    padding:0.3rem 0;
+  }
+  ion-label div>span{
+    min-width:50px;
+    padding-right: 1rem;
+    font-size:1.3rem;
+    letter-spacing: 1.5px;
+  }
+  ion-label div>img{
+    vertical-align: middle;
+    width: 20px;
+    height:20px;
+    margin-left: 10px;
+  }
+  ion-icon {
+    font-size:1.4rem;
+    border-radius: 0.3rem;
+    color: #f5b73e;
+    padding-right: 0.2rem;
+  }
+  .item-icon:before {
+    content: "\f384";
+  }
+  ion-icon.unhappy{
+    color: #433e30;
+  }
+  .unhappy:before{
+    content: "\f384";
+  }
+
+  ion-textarea {
+    border: 1px solid #26384d;
+    color:#a6a6a6;
+    padding:0;
+    min-height:100px;
+  }
+  .text-input-md,
+  .text-input-ios{
+    margin:0;
+    padding:0.5rem;
+    font-size:1rem;
+  }
+  .button-outline-md,
+  .button-outline-ios{
+    display: block;
+    border-color: #26384d;
+    color: #a6a6a6;
+    margin:1rem auto;
+    padding:1rem;
+    width:50%;
+  }
+  .button-md,
+  .button-ios{
+    height:auto;
+    min-height:2rem;
+  }
+
+
+
+  .agree.list-md,
+  .agree.list-ios{
+    margin: 1rem 0;
+    box-shadow:none;
+    background-color: inherit;
+
+  }
+
+  .agree{
+    min-width:220px;
+    max-width:240px;
+    margin:0 auto;
+
+    .item-block {
+      padding:0;
+      border-top: none !important;
+      min-height:inherit;
+      background-color: inherit;
+    }
+    .item.item-md .checkbox-md,
+    .item.item-ios .checkbox-ios {
+      position: static;
+      display: block;
+      margin: 2px 5px 0 0;
+    }
+    .checkbox-md .checkbox-icon,
+    .checkbox-ios .checkbox-icon {
+      border-radius: inherit;
+      position: relative;
+      width: 14px;
+      height: 14px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #c8c7cc;
+      background-color: #fff;
+    }
+    .checkbox-md .checkbox-checked,
+    .checkbox-ios .checkbox-checked {
+      border-color: white;
+      background-color: white;
+    }
+    .checkbox-md .checkbox-checked .checkbox-inner,
+    .checkbox-ios .checkbox-checked .checkbox-inner {
+      left: 3px;
+      top: -1px;
+      position: absolute;
+      width: 6px;
+      height: 12px;
+      border-width: 2px;
+      border-top-width: 0;
+      border-left-width: 0;
+      border-style: solid;
+      border-color: #00afff;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    
+    .item-ios ion-label,
+    .item-radio-checked.item-ios ion-label,
+    .item-md ion-label,
+    .item-radio-checked.item-md ion-label{
+      color:#d1d2d3;
+      font-size:1rem;
+    }
+    .item-ios ion-label span,
+    .item-radio-checked.item-ios ion-label span,
+    .item-md ion-label span,
+    .item-radio-checked.item-md ion-label span{
+      color:#00afff;
+    }
+  }
+
+  .button-large-md,
+  .button-large-ios{
+    font-size:1.6rem;
+    letter-spacing: 4px;
+  }
+}

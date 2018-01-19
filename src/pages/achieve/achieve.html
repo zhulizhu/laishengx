@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>用户成就</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
+    <!--<ion-refresher-content-->
+      <!--pullingIcon="arrow-dropdown"-->
+      <!--pullingText="Pull to refresh"-->
+      <!--refreshingSpinner="circles"-->
+      <!--refreshingText="刷新中...">-->
+    <!--</ion-refresher-content>-->
+  <!--</ion-refresher>-->
+  <ion-grid>
+    <ion-row *ngFor="let item of listsOne;let i=index">
+      <ion-col col-4 class="col-left">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{item.member.avatar?item.member.avatar:'assets/img/people1.jpg'}}">
+          </ion-avatar>
+          <p>{{item.member.nickname}}{{item.id}}</p>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4 class="col-center">
+        <ion-item *ngIf="i==0">
+          <ion-avatar item-start>
+            <img src="assets/img/three.png">
+          </ion-avatar>
+          <p>健身达人</p>
+        </ion-item>
+        <ion-item *ngIf="i==1">
+          <ion-avatar item-start>
+            <img src="assets/img/one.png">
+          </ion-avatar>
+          <p>健身达人</p>
+        </ion-item>
+        <ion-item *ngIf="i==2">
+          <ion-avatar item-start>
+            <img src="assets/img/two.png">
+          </ion-avatar>
+          <p>健身达人</p>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4 class="col-right">
+        <ion-item>
+          <p>{{item.all_time}}<span>分钟</span></p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="sheng" *ngIf="listsTwo.length&&yes==0" (click)="more()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ion-grid *ngIf="listsTwo.length&&yes==1">
+    <ion-row  *ngFor="let item of listsTwo;let i=index">
+      <ion-col col-4 class="col-left">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{item.member.avatar?item.member.avatar:'assets/img/people1.jpg'}}">
+          </ion-avatar>
+          <p>{{item.member.nickname}}{{item.id}}</p>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4 class="col-center">
+        <ion-item>
+          <p>{{i+4}}</p>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4 class="col-right">
+        <ion-item>
+          <p>{{item.all_time}}<span>分钟</span></p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="listsThree.length">
+    <ion-row  *ngFor="let item of listsThree;let i=index">
+      <ion-col col-4 class="col-left">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{item.member.avatar?item.member.avatar:'assets/img/people1.jpg'}}">
+          </ion-avatar>
+          <p>{{item.member.nickname}}{{item.id}}</p>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4 class="col-center">
+        <ion-item>
+          <p>{{i+num+1}}</p>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4 class="col-right">
+        <ion-item>
+          <p>{{item.all_time}}<span>分钟</span></p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

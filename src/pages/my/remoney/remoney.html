@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>余额查询</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="info">
+      <ion-segment-button value="base" (click)="getMemberList()">
+        <span>账户余额</span>
+      </ion-segment-button>
+      <ion-segment-button value="kittens" (click)="getCardList()">
+        <span>合约套餐</span>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="all-content">
+
+  <div [ngSwitch]="info" class="member-all" (swipe)="swipeEvent($event)">
+    <ion-list *ngSwitchCase="'base'" >
+      <!--<ion-item >-->
+        <!--<div class="bas1">-->
+          <!--<p (click)="problem()"><img src="assets/img/shuoming.png"></p>-->
+          <!--<p>账户余额(元)</p>-->
+          <!--<p class="time">￥{{credit?credit:'0'}}</p>-->
+        <!--</div>-->
+      <!--</ion-item>-->
+      <ion-card class="card">
+        <!--<ion-card-header>-->
+          <!--<img class="log" src="assets/img/banner.png">-->
+          <!--<div class="tile">-->
+            <!--<p>莱盛健身会员卡</p>-->
+            <!--<p><img src="assets/img/log-wenzi.png"></p>-->
+          <!--</div>-->
+          <!--<div class="num">-->
+            <!--<p>NO:2551125655</p>-->
+          <!--</div>-->
+        <!--</ion-card-header>-->
+        <ion-card-content>
+          <div id="cov">
+            <div>
+              <h2>￥{{credit?credit:'0'}}</h2>
+            </div>
+            <svg width="160" id="svg6" height="160" viewbox="0 0 160 160">
+              <circle cx="80" cy="80" r="70" class="circle1" stroke-width="8" stroke-linecap="round" stroke="#326789" fill="none"
+                      transform="matrix(0,-1,1,0,0,160)"></circle>
+              <circle cx="80" cy="80" r="70" class="circle2" stroke-width="8" style="" stroke-linecap="round" stroke="#65c1f4" fill="none"
+                      transform="matrix(0,-1,1,0,0,160)"
+                      stroke-dasharray="0 100"></circle>
+            </svg>
+          </div>
+          <button ion-button>账户余额</button>
+        </ion-card-content>
+      </ion-card>
+      <ion-item class="titl">
+        <p class="more"><img class="left" src="assets/img/left.png">更多特权<img class="right" src="assets/img/right.png"></p>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/zhe.png">
+        </ion-thumbnail>
+        <h2>会员卡受益</h2>
+        <p>预约私教，团课健身享受9折优惠。</p>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/mian.png">
+        </ion-thumbnail>
+        <h2>满员排队特权</h2>
+        <p>自动补排空位，若未排上自动退款。</p>
+      </ion-item>
+      <ul class="list-group" >
+        <li class="list-group-item" *ngFor="let item of items" (click)="itemSelected(item.id,credit?credit:'0')">
+          <div>
+            <div class="item-img">
+              <img src={{item.icon}} alt="">
+            </div>
+            <div class="item-right" >
+              <p>{{item.name}}</p>
+              <span><ion-icon name="arrow-forward"></ion-icon></span>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </ion-list>
+    <ion-list *ngSwitchCase="'kittens'">
+        <ion-item>
+          <div class="bas1">
+            <p (click)="problem()"><img src="assets/img/shuoming.png"></p>
+            <ion-row class="name">
+              <ion-col>合约类型</ion-col>
+              <ion-col>合约次数（次数）</ion-col>
+            </ion-row>
+            <div *ngIf="!agreement.length">
+              <ion-row class="no">
+                <ion-col>暂无合约套餐，快去购买吧</ion-col>
+              </ion-row>
+            </div>
+            <div *ngIf="agreement.length">
+              <ion-row class="time" *ngFor="let item of agreement">
+                <ion-col>{{item.name}}</ion-col>
+                <ion-col>{{item.value?item.value:'0'}}次数</ion-col>
+              </ion-row>
+            </div>
+
+          </div>
+        </ion-item>
+      <!--课时大于0时-->
+        <ul class="list-group" >
+          <li class="list-group-item" *ngFor="let item of itemx" (click)="itemXSelected(item.id)">
+            <div>
+              <div class="item-img">
+                <img src={{item.icon}} alt="">
+              </div>
+              <div class="item-right" >
+                <p>{{item.name}}</p>
+                <span><ion-icon name="arrow-forward"></ion-icon></span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      <!--课时等于0时-->
+    </ion-list>
+  </div>
+</ion-content>
+

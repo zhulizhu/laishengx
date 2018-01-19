@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>用户评价</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <div class="end">
+    <h2>课程结束</h2>
+    <p>亲爱的莱盛学员，</p>
+    <p>您的健身课程结束，给你的教练评个分吧!</p>
+  </div>
+  <ion-list>
+    <ion-list-header>
+      教练评分
+    </ion-list-header>
+    <ion-item class="comment">
+      <div>
+        <span>评论</span>
+        <div>
+          <img src="{{goodsYes}}" (click)="thumbs(1,'goods')">
+          <img src="{{badNo}}" (click)="thumbs(0,'bad')">
+        </div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div>
+        <span>服务评价</span>
+        <ion-icon name="star" *ngFor="let item of server_star" (click)="star('server',item.id)" class="{{item.className}}"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div>
+        <span>健身课程</span>
+        <ion-icon name="star" *ngFor="let item of course_star" (click)="star('course',item.id)" class="{{item.className}}"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div>
+        <span>健身环境</span>
+        <ion-icon name="star" *ngFor="let item of ambient_star" (click)="star('ambient',item.id)" class="{{item.className}}"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-textarea  [(ngModel)]="content" placeholder="写下你对本次健身服务的感受吧，对他人帮助很大哦！"></ion-textarea>
+  <ion-list class="agree" radio-group>
+    <ion-item>
+      <ion-label>匿名评论</ion-label>
+      <!--<ion-radio  value="1" item-start></ion-radio>-->
+      <ion-checkbox [(ngModel)]="cover" value="1"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button outline (click)="sub()">提交评论</button>
+</ion-content>
+

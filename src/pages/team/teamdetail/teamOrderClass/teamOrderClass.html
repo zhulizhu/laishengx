@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>预约团课</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ul class="list-group">
+    <li class="list-group-item" (click)="ProjeModal()" >
+        <div class="item-right" >
+          <p>健身项目</p>
+          <!--<span><ion-icon name="arrow-forward"></ion-icon></span>-->
+          <span>{{item.subtitle}}</span>
+       </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>时间</p>
+        <span >{{timeYd*1000|date:'MM月dd日'}} <span class="text-color">{{startTime}}</span></span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>地点</p>
+        <span>{{item.addressid}}</span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>人数</p>
+        <span>{{item.total}}人</span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>价格</p>
+        <span>￥{{item.marketprice}}</span>
+      </div>
+    </li>
+  </ul>
+  <ul class="list-group">
+    <li class="list-group-item" (click)="buyCard()">
+      <div class="item-right" >
+        <p>会员卡优惠折扣</p>
+        <span class="text-color">还未开通</span>
+        <span><ion-icon name="arrow-forward"></ion-icon></span>
+      </div>
+    </li>
+    <li class="list-group-item" (click)="buyCoupons()">
+      <div class="item-right" >
+        <p>抵用券</p>
+        <span>1张可用</span>
+        <span><ion-icon name="arrow-forward"></ion-icon></span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>费用合计</p>
+        <span class="text-color">￥{{item.wholesaleprice}}</span>
+      </div>
+    </li>
+  </ul>
+  <ion-list >
+    <ion-item style="padding-bottom: 10px;">
+      购买方式
+      <!--<p item-end>-->
+        <!--<span *ngIf="way==-1">推荐</span>-->
+        <!--<span *ngIf="way==0">单课支付购买</span>-->
+        <!--<span *ngIf="way==1">多节课时购买</span>-->
+      <!--</p>-->
+      <p item-end class="person per">
+        <button class="{{btnYes}}" (click)="only()" name="0">单课支付</button>
+        <button class="{{btnNo}}" (click)="prompt()" name="1">合约支付</button>
+      </p>
+    </ion-item>
+  </ion-list>
+  <ion-list radio-group class="lis-pay">
+    <!--<ion-list-header>-->
+      <!--购买方式-->
+    <!--</ion-list-header>-->
+
+    <ion-item>
+      <ion-label><img class="img1" src="assets/img/weixin.png"></ion-label>
+      <ion-label>微信支付</ion-label>
+      <ion-label><span>推荐</span></ion-label>
+      <ion-radio checked="true" value="go"></ion-radio>
+    </ion-item>
+
+
+  </ion-list>
+  <div class="notice">
+    <p>温馨提示：开课前6小时取消预约，支持全额退款；开始时间6小时候取消预约，不支持退款。</p>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full (click)="click2()">立即支付</button>
+  </ion-toolbar>
+</ion-footer>
+
+

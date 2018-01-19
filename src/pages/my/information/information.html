@@ -1,0 +1,154 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>健康资料</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+
+<ion-list>
+  <ion-item >
+    <ion-icon item-start>
+      <img src="assets/img/jbzl.png">
+    </ion-icon>
+    <h2>基本资料</h2>
+    <button (click)="sure(inform,1)">填写资料</button>
+    <ion-row>
+      <ion-col flex="1">
+        <p>{{inform.sex==0?'男':'女'}}</p>
+        <p>性别</p>
+      </ion-col>
+      <ion-col flex="1">
+        <p>{{inform.year}}</p>
+        <p>年龄</p>
+      </ion-col>
+      <ion-col flex="1">
+        <p>{{inform.height}}cm</p>
+        <p>身高</p>
+      </ion-col>
+      <ion-col flex="1">
+        <p>{{inform.weight}}kg</p>
+        <p>体重</p>
+      </ion-col>
+    </ion-row>
+
+  </ion-item>
+  <ion-item >
+    <ion-icon item-start>
+      <img src="assets/img/stcf.png">
+    </ion-icon>
+    <h2>身体成分</h2>
+    <button (click)="sure(inform,2)">填写资料</button>
+    <div class="row">
+      <div class="col">
+        <p>{{inform.skeletal_muscle?inform.skeletal_muscle:'0'}}kg</p>
+        <p>骨骼肌</p>
+      </div>
+      <div class="col">
+        <p>{{inform.fat}}kg</p>
+        <p>体脂肪</p>
+      </div>
+      <div class="col">
+        <p>{{inform.water}}kg</p>
+        <p>水分含量</p>
+      </div>
+      <div class="col">
+        <p>{{inform.leanWeight}}kg</p>
+        <p>去脂体重</p>
+      </div>
+    </div>
+  </ion-item>
+  <ion-item >
+    <ion-icon item-start>
+      <img src="assets/img/fpfx.png">
+    </ion-icon>
+    <h2>肥胖分析</h2>
+    <button (click)="sure(inform,3)">填写资料</button>
+    <div class="row">
+      <div class="col">
+        <p>{{inform.massIndex}}</p>
+        <p>质量指数</p>
+      </div>
+      <div class="col">
+        <p>{{inform.weightPercent}}</p>
+        <p>体脂百分比</p>
+      </div>
+      <div class="col">
+        <p>{{inform.waist}}</p>
+        <p>腰臀比</p>
+      </div>
+      <div class="col">
+        <p>{{inform.basic}}kcal</p>
+        <p>基础代谢</p>
+      </div>
+    </div>
+  </ion-item>
+  <ion-item >
+    <ion-icon item-start>
+      <img src="assets/img/jsyw.png">
+    </ion-icon>
+    <h2>健身愿望</h2>
+    <button (click)="sure(inform,4)">填写资料</button>
+    <ion-row>
+      <ion-col flex="1">
+        <p>{{inform.muscle}}kg</p>
+        <p>肌肉控制</p>
+      </ion-col>
+      <ion-col flex="1">
+
+      </ion-col>
+      <ion-col flex="1">
+
+      </ion-col>
+      <ion-col flex="1">
+        <p>{{inform.fatControl}}kg</p>
+        <p>脂肪控制</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item (click)="fitDetail()">
+    <ion-icon item-start>
+      <img src="assets/img/jsqk.png">
+    </ion-icon>
+    <h2>健身情况</h2>
+    <h4>今日</h4>
+    <ion-row>
+      <ion-col col-3>
+        <p>{{historyData.time?historyData.time:'0'}}</p>
+        <p>分钟</p>
+      </ion-col>
+      <ion-col col-6>
+        <p>{{historyData.grade?historyData.grade:0}}</p>
+        <p>分数</p>
+      </ion-col>
+      <ion-col col-3>
+        <p>{{historyData.total?historyData.total:'0'}}</p>
+        <p>次数</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!--<ion-item (click)="fitDetail()">-->
+    <!--<ion-icon item-start>-->
+      <!--<img src="assets/img/jsdz.png">-->
+    <!--</ion-icon>-->
+    <!--<h2>健身动作</h2>-->
+    <!--<h4>今日</h4>-->
+    <!--<ion-row>-->
+      <!--<ion-col col-3>-->
+        <!--<p>男</p>-->
+        <!--<p>动作</p>-->
+      <!--</ion-col>-->
+      <!--<ion-col col-6>-->
+        <!--<p>29</p>-->
+        <!--<p>组数</p>-->
+      <!--</ion-col>-->
+      <!--<ion-col col-3>-->
+        <!--<p>29</p>-->
+        <!--<p>个数</p>-->
+      <!--</ion-col>-->
+    <!--</ion-row>-->
+  <!--</ion-item>-->
+</ion-list>
+
+</ion-content>
+

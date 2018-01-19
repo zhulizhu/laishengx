@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>健身动作</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <table>
+    <tr>
+      <th>部位</th>
+      <th>动作</th>
+      <th>组数</th>
+      <th>负重标准</th>
+      <th>每组数量</th>
+    </tr>
+    <tbody *ngIf="historyArray.length">
+    <tr *ngFor="let item of historyArray;">
+      <td>{{item.space_name}}</td>
+      <td>{{item.action_name}}</td>
+      <td>{{item.group}}</td>
+      <td>{{item.weight}}</td>
+      <td>{{item.number}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <p class="remind-not" *ngIf="!historyArray.length">暂无任何健身动作</p>
+
+</ion-content>
+
+
+

@@ -1,0 +1,27 @@
+problem{
+  .content-md, .content-ios{
+    background: #efeff4;
+  }
+  .card-header-md,
+  .card-header-ios{
+    padding: 16px 10px;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 1.6rem;
+    color:#414040;
+  }
+  ion-card-content{
+    padding:10px;
+    color:#949494;
+    font-size: 1.4rem;
+  }
+  .card-header-md + .card-content-md,
+  .card-header-ios + .card-content-ios{
+    padding:10px;
+    color:#949494;
+    font-size: 1.4rem;
+  }
+  .card-md,.card-ios{
+    background: white;
+    -webkit-box-shadow:none;
+  }
+}

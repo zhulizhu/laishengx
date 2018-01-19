@@ -1,0 +1,12 @@
+<ion-content class="modal-bg">
+  <div class="cover-center way-center">
+    <h2>购买方式：</h2>
+
+    <ion-list>
+      <button ion-button outline *ngIf="way!=1" class="select"  (click)="select(0)">单课支付</button>
+      <button ion-button outline *ngIf="way==1" class=""  (click)="select(0)">单课支付</button>
+      <button ion-button outline class=""  *ngIf="way!=1" (click)="select(1)">合约支付</button>
+      <button ion-button outline class="select"  *ngIf="way==1" (click)="select(1)">合约支付</button>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>账户明细</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <div class="top">
+    <ion-datetime  displayFormat="YYYY-MM" min="2017-08"
+                   doneText="确定" cancelText="取消" [(ngModel)]="myDate" (ionChange)="changeTime(myDate)"></ion-datetime>
+  <ion-list>
+    <ion-item>
+      <h2>{{today*1000|date:'yyyy年MM月'}}</h2>
+      <p>账户收入<span>￥{{total1}}</span>,支出<span>￥{{total0}}</span></p>
+      <ion-avatar item-end>
+        <img src="assets/img/zhanghumingxi.png">
+      </ion-avatar>
+    </ion-item>
+  </ion-list>
+  </div>
+
+  <!--<ul class="list-group" *ngIf="lists0.length">-->
+    <!--<li class="list-group-item" *ngFor="let item of lists0">-->
+      <!--<div class="top">-->
+         <!--<div class="net"></div>-->
+        <!--<span>{{item.log_status==1?'+':'—'}}:</span>-->
+        <!--<span>+{{item.title}}:</span>-->
+        <!--<span>￥{{item.num}}</span>-->
+      <!--</div>-->
+      <!--<div class="mx">-->
+        <!--<p>来自{{item.remark}}</p>-->
+        <!--<p>{{item.createtime}}</p>-->
+      <!--</div>-->
+    <!--</li>-->
+  <!--</ul>-->
+  <ul class="list-group" *ngIf="lists0.length">
+    <li class="list-group-item" *ngFor="let item of lists0">
+      <div class="top">
+         <div class="net"></div>
+        <span>-{{item.title}}:</span>
+        <span>￥{{item.money}}</span>
+      </div>
+      <div class="mx">
+        <p>来自{{item.typestr}}</p>
+        <p>{{item.createtime}}</p>
+      </div>
+    </li>
+  </ul>
+  <ul *ngIf="lists1.length">
+    <li class="list-group-item" *ngFor="let item of lists1">
+      <div class="top">
+        <div class="net"></div>
+        <span>+{{item.title}}:</span>
+        <span>￥{{item.money}}</span>
+      </div>
+      <div class="mx">
+        <p>来自{{item.typestr}}</p>
+        <p>{{item.createtime}}</p>
+      </div>
+    </li>
+  </ul>
+  <p class="remind-not" *ngIf="!lists0.length&&!lists1.length">暂无明细记录</p>
+
+  <div class="{{show0==0&&show1==0?'hide':'show'}}">
+    <ion-infinite-scroll  (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中……">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+</ion-content>
+

@@ -1,0 +1,119 @@
+page-buyclass{
+  .all-content {
+    background-color: #26384d;
+  }
+  .list-header-md,
+  .list-header-ios{
+    border-top: 1px solid #253446;
+    border-bottom: 1px solid #253446;
+    padding-left: 1rem;
+    min-height: 3rem;
+    margin-bottom: 0;
+    .label-ios,.label-md{
+      border-left: 3px solid #01a9f6;
+      padding:2px 6px;
+      margin: 0 11px;
+    }
+  }
+  .item-ios,.item-md{
+    background-color: #1b2838;
+    color: #fff;
+    padding-left: 0;
+  }
+  .list-md {
+    margin: 0 0 22px;
+  }
+  .list-ios{
+    margin: 0 0 17px;
+  }
+  .input-wrapper{
+    overflow: hidden;
+  }
+  .text-color{
+    color: #01a9f6!important;
+  }
+  .radio-ios .radio-icon{
+    border: 1px solid #01a9f6;
+    border-radius: 50%;
+    width: 21px!important;
+  }
+  .radio-md .radio-icon{
+    border: 1px solid #01a9f6;
+    border-radius: 50%;
+    width: 16px!important;
+    height: 16px!important;
+  }
+  .radio-md .radio-inner{
+    top:3px;
+    left:3px;
+  }
+  .list-ios .item-block .item-inner,.list-md .item-block .item-inner{
+    border-bottom: 1px solid #253446;
+  }
+  .list-ios > .item-block:last-child,.list-md > .item-block:last-child{
+    border-bottom: 1px solid #253446;
+  }
+  .radio-ios .radio-checked .radio-inner,.radio-md .radio-checked .radio-inner{
+    border-color: #fff!important;
+  }
+  .radio-ios .radio-checked,.radio-md .radio-checked {
+    background-color: #00afff!important;
+  }
+
+  .midd{
+    //float: left;
+    p:first-child{
+      font-size: 15px;
+      color: white;
+
+    }
+    p{
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      span{
+        font-size: 12px;
+        color: #d8d5d5;
+        margin-left: 10px;
+      }
+
+      color: #d8d5d5;
+      margin: 5px;
+    }
+  }
+  .left {
+    position: relative;
+    //height: 50px;
+    width: 100px;
+    float: left;
+
+    p{
+      position: absolute;
+      left:0;
+      top:35%;
+      width: 80px;
+      text-align: center;
+      //margin-left: 15px;
+      color: #fff;
+      font-size: 14px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    img{
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+  }
+  .button-ios,.button-md{
+    margin: 0;
+    background-color: #00afff;
+  }
+  .toolbar-ios,.toolbar-md{
+    padding: 0;
+    min-height: 44px;
+  }
+
+}

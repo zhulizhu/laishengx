@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>健身资料</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+
+  <h3 class="ziliao dz rili" (click)="ChooseTime()">
+    <span *ngIf="type==2">{{today*1000|date:'yyyy年MM月'}}</span>
+    <span  *ngIf="type==1&&endDate">{{today*1000|date:'yyyy年MM月dd'}}—{{endDate*1000|date:'yyyy年MM月dd'}}</span>
+    <span style="float: right">
+    <img src="assets/img/rili.png"></span>
+  </h3>
+  <h3 class="ziliao dz"><span><img src="assets/img/ziliao1.png"></span>健身动作资料</h3>
+  <div class="row row1">
+    <div class="col">
+      <p><span>{{historyData.time?historyData.time:'0'}}</span></p>
+      <p>健身时间(分)</p>
+    </div>
+    <div class="col">
+      <p><span>{{historyData.total?historyData.total:'0'}}</span></p>
+      <p>健身次数(次)</p>
+    </div>
+    <div class="col">
+      <p><span>{{historyData.grade?historyData.grade:'0'}}</span></p>
+      <p>评分(平均分)</p>
+    </div>
+  </div>
+  <h3 class="dz" (click)="moreAction()">
+    <img src="assets/img/jsdz.png">
+    <span>健身动作</span>
+    <span class="more">查看更多 <ion-icon name="arrow-forward"></ion-icon></span>
+  </h3>
+  <table>
+    <tr>
+      <th>部位</th>
+      <th>动作</th>
+      <th>组数</th>
+      <th>负重标准</th>
+      <th>每组数量</th>
+    </tr>
+    <tr *ngFor="let item of historyArray;">
+      <td>{{item.space_name}}</td>
+      <td>{{item.action_name}}</td>
+      <td>{{item.group}}</td>
+      <td>{{item.weight}}</td>
+      <td>{{item.number}}</td>
+    </tr>
+  </table>
+  <p class="no" *ngIf="!historyArray.length">暂无健身动作</p>
+  <h3 class="dz dz1" (click)="moreRemark()">
+    <img src="assets/img/jlpy.png">
+    <span>教练评语</span>
+    <span class="more">查看更多 <ion-icon name="arrow-forward"></ion-icon></span>
+  </h3>
+  <ion-list *ngIf="historyData.comment.length">
+    <ion-item *ngFor="let items of historyData.comment">
+      <ion-avatar item-start>
+        <img src="{{items.teacher_avatar?items.teacher_avatar:'assets/img/people1.jpg'}}">
+      </ion-avatar>
+      <h2>{{items.name?items.name:'匿名评论'}}</h2>
+      <h3>{{items.createtime*1000|date:'yyyy-MM-dd HH:mm'}}</h3>
+      <p *ngFor="let item of items.content;let i=index">
+        {{i<1?item:""}}
+        <!--<span *ngIf="i>1" style="color:#00C2FF;">追加评论:</span>{{i>1?item.comment?item.comment:item:''}}-->
+      </p>
+    </ion-item>
+    <ion-item *ngIf="!historyData.comment.length">
+      <p>暂无任何评论</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+
+

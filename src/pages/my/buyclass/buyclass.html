@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>购买课时</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="all-content">
+  <ion-list radio-group  [(ngModel)]="Contract" >
+    <ion-list-header>自助合约</ion-list-header>
+    <p class="no" *ngIf="!packageLen">暂无自助合约套餐</p>
+    <div *ngFor="let item of items">
+      <ion-item *ngIf="item.type==0">
+        <ion-label>
+          <div class="left">
+            <img src="assets/img/keshibg.png">
+            <p>{{item.name}}</p>
+          </div>
+          <div class="midd">
+            <p>{{item.name}}
+              <!--<span>限新人购买</span>-->
+            </p>
+            <p>{{item.name}}合约(任务{{item.value}}次)</p>
+            <p class="text-color">￥{{item.price}}</p>
+          </div>
+        </ion-label>
+        <ion-radio item-right value="{{item.id}}"></ion-radio>
+      </ion-item>
+    </div>
+    <ion-list-header>私教合约</ion-list-header>
+    <p class="no" *ngIf="!privateLen">暂无私教合约套餐</p>
+
+    <div *ngFor="let item of items">
+      <ion-item *ngIf="item.type==1">
+        <ion-label>
+          <div class="left">
+            <img src="assets/img/keshibg.png">
+            <p>{{item.name}}</p>
+          </div>
+          <div class="midd">
+            <p>{{item.name}}
+              <!--<span>限新人购买</span>-->
+            </p>
+            <p>{{item.name}}合约(任务{{item.value}}次)</p>
+            <p class="text-color">￥{{item.price}}</p>
+          </div>
+        </ion-label>
+        <ion-radio item-right value="{{item.id}}"></ion-radio>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full (click)="payClass(Contract)">立即购买</button>
+  </ion-toolbar>
+</ion-footer>
+

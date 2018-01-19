@@ -1,0 +1,65 @@
+<ion-content class="all-content">
+  <ul class="list-group">
+    <li class="list-group-item" >
+      <div class="item-right">
+        <p>健身项目</p>
+        <!--<span>{{item.subtitle}}</span>-->
+        <span>12</span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>时间</p>
+        <!--<span>{{item.addressid}}</span>-->
+        <span>2017-12-12</span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>地点</p>
+        <!--<span>{{item.addressid}}</span>-->
+        <span>12</span>
+      </div>
+    </li>
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>人数</p>
+        <!--<span><span>{{item.total}}</span>人</span>-->
+        <span><span>1</span>人</span>
+      </div>
+    </li>
+  </ul>
+  <ul class="list-group">
+    <li class="list-group-item" >
+      <div class="item-right" >
+        <p>费用合计</p>
+        <!--<span class="text-color">￥<span>{{item.wholesaleprice}}</span></span>-->
+        <span class="text-color">￥<span>180.00</span></span>
+      </div>
+    </li>
+  </ul>
+  <ion-list >
+    <ion-item style="padding-bottom: 10px;">
+      购买方式
+      <p item-end class="person per">
+        <!--<button class="{{btnYes}}" (click)="only()" name="0">单课支付</button>-->
+        <!--<button class="{{btnNo}}" (click)="prompt()" name="1">合约支付</button>-->
+      </p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list radio-group class="lis-pay">
+    <ion-item>
+      <ion-label><img class="img1" src="assets/img/weixin.png"></ion-label>
+      <ion-label>微信支付</ion-label>
+      <ion-radio checked="true" value="go"></ion-radio>
+    </ion-item>
+
+  </ion-list>
+  <ion-toolbar>
+    <button ion-button full (click)="subPay()">确定支付3</button>
+  </ion-toolbar>
+</ion-content>
+<!--<ion-footer>-->
+  <!---->
+<!--</ion-footer>-->
